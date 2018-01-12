@@ -2,7 +2,7 @@
 
 This is a python socket server that echos back any http request made to it.
 
-## Requiremnts
+## Requirements
 
 Python 3.4+
 
