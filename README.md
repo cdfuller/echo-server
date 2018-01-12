@@ -9,6 +9,9 @@ Python 3.4+
 No other dependencies
 
 
+## References
+* [Let’s Build A Web Server. Part 1](https://ruslanspivak.com/lsbaws-part1/), [Part. 2](https://ruslanspivak.com/lsbaws-part2/), [Part 3](https://ruslanspivak.com/lsbaws-part3/)
+
 ## TODO
 * Add screenshot and instructions to README
 * Add help text describing the program when you pass `-h --help`
