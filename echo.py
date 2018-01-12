@@ -5,7 +5,7 @@ import sys
 # Block size is set to 8192 because thats usually the max header size
 BLOCK_SIZE = 8192
 
-def serve(host='0.0.0.0', port=3246):
+def serve(host='0.0.0.0', port=3246, verbose=False):
     try:
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
@@ -42,6 +42,10 @@ def serve(host='0.0.0.0', port=3246):
             print(' - '.join([client_address[0], request_time, request['header']['request-line']]))
 
             response = "HTTP/1.1 200 OK\n\n{}".format(request['raw'].decode('utf-8'))
+            if verbose:
+                print("-"*10)
+                print(response)
+                print("-"*40)
             connection.sendall(response.encode())
             connection.close()
     except KeyboardInterrupt:
@@ -72,8 +76,10 @@ if __name__ == '__main__':
     parser = ArgumentParser()
     parser.add_argument('-b', '--bind', default='localhost', help='host to bind to')
     parser.add_argument('-p', '--port', default=3246, type=int, help='port to listen on')
+    parser.add_argument('--verbose', action='store_true', help='print all requests to terminal')
     args = parser.parse_args()
     host = args.bind
     port = args.port
+    verbose = args.verbose
 
-    serve(host, port)
+    serve(host, port, verbose)
