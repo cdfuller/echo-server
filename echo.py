@@ -60,7 +60,7 @@ def build_request(first_chunk):
     i = 1
     while i < len(lines[1:]) and lines[i] != '':
         k, v = lines[i].split(': ')
-        h.update({k: v})
+        h.update({k.lower(): v})
         i += 1
     r = {
         "header": h, 
