@@ -1,5 +1,7 @@
 FROM python:3.6-alpine
 
+ENV PYTHONUNBUFFERED 1
+
 WORKDIR app
 COPY echo.py echo.py
 
