@@ -16,6 +16,5 @@ No other dependencies
 
 ## TODO
 * Add screenshot and instructions to README
-* Add help text describing the program when you pass `-h --help`
 * Figure out how to make it a module so I can do `python -m echo`
 * Add to dockerhub
