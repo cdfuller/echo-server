@@ -9,6 +9,21 @@ Python 3.4+
 No other dependencies
 
 
+## Running
+
+Default port is 3246 (echo on a dialpad)
+
+Python:
+```
+./echo.py
+```
+
+Docker:
+```
+docker build -t echo-server .
+docker run -itp 3246:3246 echo-server
+```
+
 ## References
 * [Let’s Build A Web Server. Part 1](https://ruslanspivak.com/lsbaws-part1/), [Part. 2](https://ruslanspivak.com/lsbaws-part2/), [Part 3](https://ruslanspivak.com/lsbaws-part3/)
 * [HTTP/1.1 RFC2616](https://tools.ietf.org/html/rfc2616)
