@@ -18,7 +18,7 @@ Python:
 ./echo.py
 ```
 
-Or:
+**Or:**
 
 Docker:
 ```
