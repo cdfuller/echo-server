@@ -18,6 +18,8 @@ Python:
 ./echo.py
 ```
 
+Or:
+
 Docker:
 ```
 docker build -t echo-server .
