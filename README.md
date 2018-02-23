@@ -18,6 +18,13 @@ Python:
 ./echo.py
 ```
 
+### Options
+```
+  -b BIND, --bind BIND  host to bind to
+  -p PORT, --port PORT  port to listen on
+  -v, --verbose         print all requests to terminal
+```
+
 **Or:**
 
 Docker:
