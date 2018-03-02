@@ -18,13 +18,6 @@ Python:
 ./echo.py
 ```
 
-### Options
-```
-  -b BIND, --bind BIND  host to bind to
-  -p PORT, --port PORT  port to listen on
-  -v, --verbose         print all requests to terminal
-```
-
 **Or:**
 
 Docker:
@@ -32,6 +25,14 @@ Docker:
 docker build -t echo-server .
 docker run -itp 3246:3246 echo-server
 ```
+
+### Options
+```
+  -b BIND, --bind BIND  host to bind to
+  -p PORT, --port PORT  port to listen on
+  -v, --verbose         print all requests to terminal
+```
+
 
 ## References
 * [Let’s Build A Web Server. Part 1](https://ruslanspivak.com/lsbaws-part1/), [Part. 2](https://ruslanspivak.com/lsbaws-part2/), [Part 3](https://ruslanspivak.com/lsbaws-part3/)
