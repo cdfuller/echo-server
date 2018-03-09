@@ -43,4 +43,3 @@ docker run -itp 3246:3246 echo-server
 * Add screenshot and instructions to README
 * Figure out how to make it a module so I can do `python -m echo`
 * Add to dockerhub
-* Add quiet option
