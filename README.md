@@ -18,11 +18,21 @@ Python:
 ./echo.py
 ```
 
+**Or:**
+
 Docker:
 ```
 docker build -t echo-server .
 docker run -itp 3246:3246 echo-server
 ```
+
+### Options
+```
+  -b BIND, --bind BIND  host to bind to
+  -p PORT, --port PORT  port to listen on
+  -v, --verbose         print all requests to terminal
+```
+
 
 ## References
 * [Let’s Build A Web Server. Part 1](https://ruslanspivak.com/lsbaws-part1/), [Part. 2](https://ruslanspivak.com/lsbaws-part2/), [Part 3](https://ruslanspivak.com/lsbaws-part3/)
@@ -33,3 +43,4 @@ docker run -itp 3246:3246 echo-server
 * Add screenshot and instructions to README
 * Figure out how to make it a module so I can do `python -m echo`
 * Add to dockerhub
+* Add quiet option
