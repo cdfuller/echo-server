@@ -7,14 +7,15 @@ import sys
 # Block size is set to 8192 because thats usually the max header size
 BLOCK_SIZE = 8192
 
-def serve(host='0.0.0.0', port=3246, verbose=False):
+def serve(host='0.0.0.0', port=3246, verbosity=1):
     try:
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         sock.bind((host, port))
         sock.listen(1)
 
-        print('Echoing from http://{}:{}'.format(host, port))
+        if verbosity > 0:
+            print('Echoing from http://{}:{}'.format(host, port))
 
         while True:
             connection, client_address = sock.accept()
@@ -41,10 +42,12 @@ def serve(host='0.0.0.0', port=3246, verbose=False):
                     bytes_left -= BLOCK_SIZE
 
             request_time = datetime.datetime.now().ctime()
-            print(' - '.join([client_address[0], request_time, request['header']['request-line']]))
+
+            if verbosity > 0:
+                print(' - '.join([client_address[0], request_time, request['header']['request-line']]))
 
             response = "HTTP/1.1 200 OK\nAccess-Control-Allow-Origin: *\n\n{}".format(request['raw'].decode('utf-8'))
-            if verbose:
+            if verbosity == 2:
                 print("-"*10)
                 print(response)
                 print("-"*40)
@@ -79,9 +82,17 @@ if __name__ == '__main__':
     parser.add_argument('-b', '--bind', default='localhost', help='host to bind to')
     parser.add_argument('-p', '--port', default=3246, type=int, help='port to listen on')
     parser.add_argument('-v', '--verbose', action='store_true', help='print all requests to terminal')
+    parser.add_argument('-q', '--quiet', action='store_true', help='silence all output (overrides --verbose)')
     args = parser.parse_args()
     host = args.bind
     port = args.port
     verbose = args.verbose
+    quiet = args.quiet
 
-    serve(host, port, verbose)
+    verbosity = 1
+    if verbose:
+        verbosity = 2
+    if quiet:
+        verbosity = 0
+
+    serve(host, port, verbosity)
