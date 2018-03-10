@@ -42,4 +42,7 @@ docker run -itp 3246:3246 echo-server
 ## TODO
 * Add screenshot and instructions to README
 * Figure out how to make it a module so I can do `python -m echo`
+  * Notes:
+    * Works by default.
+    * Would like to figure out how to add it to the python package index
 * Add to dockerhub
