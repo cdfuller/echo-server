@@ -47,3 +47,4 @@ docker run -itp 3246:3246 echo-server
     * Would like to figure out how to add it to the python package index
 * Add to dockerhub
 * Write responses to log file
+* How to add options when using docker to run
