@@ -38,7 +38,7 @@ def serve(host='0.0.0.0', port=3246, verbosity=1):
                         bytes_left = 0
                 else:
                     request['raw'] += data
-                    request['body'] += data.decode('utf-8')
+                    request['body'] += data.decode('utf-8', 'ignore')
                     bytes_left -= BLOCK_SIZE
 
             request_time = datetime.datetime.now().ctime()
@@ -46,7 +46,8 @@ def serve(host='0.0.0.0', port=3246, verbosity=1):
             if verbosity > 0:
                 print(' - '.join([client_address[0], request_time, request['header']['request-line']]))
 
-            response = "HTTP/1.1 200 OK\nAccess-Control-Allow-Origin: *\n\n{}".format(request['raw'].decode('utf-8'))
+            raw_decoded = request['raw'].decode('utf-8', 'ignore')
+            response = "HTTP/1.1 200 OK\nAccess-Control-Allow-Origin: *\n\n{}".format(raw_decoded)
             if verbosity == 2:
                 print("-"*10)
                 print(response)
@@ -60,7 +61,7 @@ def serve(host='0.0.0.0', port=3246, verbosity=1):
 
 
 def build_request(first_chunk):
-    lines = first_chunk.decode('utf-8').split('\r\n')
+    lines = first_chunk.decode('utf-8', 'ignore').split('\r\n')
     h = {'request-line': lines[0]}
     i = 1
     while i < len(lines[1:]) and lines[i] != '':
