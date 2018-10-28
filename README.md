@@ -71,7 +71,7 @@ docker run -itp 3246:3246 cdfuller/echo-server
 
 
 ## References
-* [Let’s Build A Web Server. Part 1](https://:.com/lsbaws-part1/), [Part. 2](https://ruslanspivak.com/lsbaws-part2/), [Part 3](https://ruslanspivak.com/lsbaws-part3/)
+* [Let’s Build A Web Server. Part 1](https://ruslanspivak.com/lsbaws-part1/), [Part. 2](https://ruslanspivak.com/lsbaws-part2/), [Part 3](https://ruslanspivak.com/lsbaws-part3/)
 * [HTTP/1.1 RFC2616](https://tools.ietf.org/html/rfc2616)
 * [A Practical Guide to Writing Clients and Servers](http://www.jmarshall.com/easy/http/)
 
