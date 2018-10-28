@@ -76,7 +76,6 @@ docker run -itp 3246:3246 cdfuller/echo-server
 * [A Practical Guide to Writing Clients and Servers](http://www.jmarshall.com/easy/http/)
 
 ## TODO
-* Add screenshot and instructions to README
 * Figure out how to make it a module so I can do `python -m echo`
   * Notes:
     * Works by default.
