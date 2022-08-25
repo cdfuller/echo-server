@@ -47,7 +47,7 @@ def serve(host='0.0.0.0', port=3246, verbosity=1):
                 print(' - '.join([client_address[0], request_time, request['header']['request-line']]))
 
             raw_decoded = request['raw'].decode('utf-8', 'ignore')
-            response = "HTTP/1.1 200 OK\nAccess-Control-Allow-Origin: *\n\n{}".format(raw_decoded)
+            response = "HTTP/1.1 200 OK\r\nAccess-Control-Allow-Origin: *\r\n\r\n{}".format(raw_decoded)
             if verbosity == 2:
                 print("-"*10)
                 print(response)
