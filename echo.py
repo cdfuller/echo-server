@@ -65,7 +65,7 @@ def build_request(first_chunk):
     lines = first_chunk.decode('utf-8', 'ignore').split('\r\n')
     h = {'request-line': lines[0]}
     i = 1
-    header_kv = re.compile('(\w\S+)\s?:\s?(\w.*)')
+    header_kv = re.compile('(\w\S+)\s?:\s?(\S.*)')
     while i < len(lines[1:]) and lines[i] != '':
         m = header_kv.match(lines[i])
         k, v = m.group(1), m.group(2)
