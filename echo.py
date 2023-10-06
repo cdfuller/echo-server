@@ -3,6 +3,7 @@
 import datetime
 import socket
 import sys
+import re
 
 # Block size is set to 8192 because thats usually the max header size
 BLOCK_SIZE = 8192
@@ -64,9 +65,11 @@ def build_request(first_chunk):
     lines = first_chunk.decode('utf-8', 'ignore').split('\r\n')
     h = {'request-line': lines[0]}
     i = 1
+    header_kv = re.compile('(\w.*):(.*)')
     while i < len(lines[1:]) and lines[i] != '':
-        k, v = lines[i].split(': ')
-        h.update({k.lower(): v})
+        m = header_kv.match(lines[i])
+        k, v = m.group(1), m.group(2)
+        h.update({k.lower().strip(): v.strip()})
         i += 1
     r = {
         "header": h, 
