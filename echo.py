@@ -65,7 +65,9 @@ def build_request(first_chunk):
     h = {'request-line': lines[0]}
     i = 1
     while i < len(lines[1:]) and lines[i] != '':
-        k, v = lines[i].split(': ')
+        k, v = lines[i].split(":", 1)
+        if v[0] == " ":
+            v = v[1:]
         h.update({k.lower(): v})
         i += 1
     r = {
